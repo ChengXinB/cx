@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mjs.domain">
+	<class name="Authority" table="authority">
+		<id name="a_id" column="a_id" type="string">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="a_name" column="a_name" not-null="true" unique="true"></property>
+		<property name="a_url"></property>
+	</class>
+</hibernate-mapping>

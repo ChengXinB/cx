@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+   	
+   	<package name="invitation_manager" namespace="/invitation" extends="struts-BBS">
+   		<action name="invitation_*" class="com.mjs.domain.Invitation" method="{1}">
+   			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="permissionInterceptor"></interceptor-ref>
+   			<result name="findAllInvitation">/WEB-INF/manager/findAllInvitation.jsp</result>
+   			<result name="findInvitationByName">/WEB-INF/manager/findInvitationByName.jsp</result>
+   			<result name="addInvitation">/client/listInvitation.jsp</result>
+   			<result name="addLeave">/client/listInvitation.jsp</result>
+   			<result name="listAllInvitation">/client/listAllInvitation.jsp</result>
+   			<result name="clientDelInvitation" type="chain">
+				<param name="namespace">/manager</param>
+   				<param name="actionName">person_showMeInvitation</param>
+			</result>
+   			<result name="deleteInvitation" type="chain">
+   				<param name="namespace">/manager</param>
+   				<param name="actionName">person_findLimitInvitation</param>
+   			</result>
+   			<result name="addInvitationError" type="chain">
+   				<param name="namespace">/manager</param>
+   				<param name="actionName">person_clientLogin</param>
+   			</result>
+   			<result name="delInvitationById" type="chain">
+   				<param name="namespace">/invitation</param>
+   				<param name="actionName">invitation_findInvitationByName</param>
+   			</result>
+   			<result name="permission" >/client/index.jsp</result>
+   		</action>
+   	</package>
+</struts>	

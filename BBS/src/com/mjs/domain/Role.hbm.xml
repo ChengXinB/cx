@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mjs.domain">
+	<class name="Role" table="role">
+		<id name="r_id" column="r_id" type="string">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="r_name" column="r_name" not-null="true" unique="true"></property>
+		<set name="r_authority" inverse="false" cascade="none" table="role_authority">
+			<key column="a_role"></key>
+			<many-to-many class="Authority" column="r_authority"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="invitationDao" class="com.mjs.dao.impl.InvitationDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="invitationService" class="com.mjs.service.impl.InvitationServiceImpl">
+		<property name="invitationDao">
+			<ref bean="invitationDao"/>
+		</property>
+		<property name="leaveDao">
+			<ref bean="leaveDao"/>
+		</property>
+		<property name="personDao">
+			<ref bean="personDao"/>
+		</property>
+	</bean>
+	<bean id="invitationAction" class="com.mjs.domain.Invitation" scope="prototype">
+		<property name="invitationService">
+			<ref bean="invitationService"/>
+		</property>
+	</bean>
+</beans>

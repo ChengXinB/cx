@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+   	
+   	<package name="authority_manager" namespace="/authority" extends="struts-BBS">
+   	
+   		<action name="authority_*" class="com.mjs.domain.Authority" method="{1}">
+   			<result name="findAllAuthority">/WEB-INF/manager/findAllAuthority.jsp</result>
+   		</action>
+   	</package>
+</struts>	

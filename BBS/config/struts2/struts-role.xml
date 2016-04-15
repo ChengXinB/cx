@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="role_manager" namespace="/role" extends="struts-BBS">
+		<action name="role_*" class="com.mjs.domain.Role" method="{1}">
+			<result name="findAllRole">/WEB-INF/manager/findAllRole.jsp</result>
+			<result name="addRole">/WEB-INF/manager/registRole.jsp</result>
+			<result name="updateRole">/WEB-INF/manager/updateRole.jsp</result>
+			<result name="upAuthority" type="chain">
+				<param name="namespace">/role</param>
+				<param name="actionName">role_updateRole</param>
+			</result>
+		</action>
+	</package>
+</struts>	

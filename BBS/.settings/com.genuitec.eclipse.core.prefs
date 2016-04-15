@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/client/js/sliderengine/skin,WebRoot/WEB-INF/manager/resources/scripts,WebRoot/resources/scripts,WebRoot/WEB-INF/utf8-jsp,WebRoot/client/js/sliderengine/jquery.js
+validator.Unchecked=

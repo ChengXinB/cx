@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+   	
+   	<package name="person_manager" namespace="/manager" extends="struts-BBS">
+   	
+   		<action name="person_*" class="com.mjs.domain.Person" method="{1}">
+   		
+   			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="permissionInterceptor"></interceptor-ref>
+				
+				
+   			<result name="login">/WEB-INF/manager/index.jsp</result>
+   			<result name="showMeInvitation">/client/showMeInvitation.jsp</result>
+   			<result name="showImage">/client/listInvitation.jsp</result>
+   			<result name="loginError">/login.jsp</result>
+   			<result name="listLimitPerson">/WEB-INF/manager/listLimitPerson.jsp</result>
+   			<result name="unlogin" type="redirect">/login.jsp</result>
+   			<result name="addPerson">/WEB-INF/manager/addPerson.jsp</result>
+   			<result name="toAddPerson">/WEB-INF/manager/addPerson.jsp</result>
+   			<result name="findPersonByNick">/WEB-INF/manager/findPersonByNick.jsp</result>
+   			<result name="updateRole">/WEB-INF/manager/updatePersonRole.jsp</result>
+   			<result name="input">/WEB-INF/manager/addPerson.jsp</result>
+   			<result name="findLimitInvitation">/WEB-INF/manager/findLimitInvitation.jsp</result>
+   			<result name="clientAddPerson">/client/index.jsp</result>
+   			<result name="clientError">/client/regist.jsp</result>
+   			<result name="clientLogin" type="redirect">/client/index.jsp</result>
+   			<result name="clientLoginError" type="redirect">/client/login.jsp</result>
+   			<result name="clientUnLogin"  type="redirect">/client/index.jsp</result>
+   			<result name="showPersonDetail" >/client/showPersonDetail.jsp</result>
+   			<result name="clientUpdate" >/client/index.jsp</result>
+   			<result name="showClientDetail" >/client/showClientDetail.jsp</result>
+   			<result name="permission" >/client/index.jsp</result>
+   		</action>
+   	</package>
+</struts>	

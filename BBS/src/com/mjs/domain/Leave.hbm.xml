@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mjs.domain">
+	<class name="Leave" table="leave_">
+		<id name="l_id" column="l_id" type="string">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="l_content" column="l_content" type="text" not-null="true" length="2000"></property>
+		<property name="l_date" column="l_date" not-null="true"></property>
+		<many-to-one name="l_invitation" class="Invitation" column="l_invitation" cascade="none"></many-to-one>
+		<many-to-one name="l_person" class="Person" column="l_person"></many-to-one>
+	</class>
+</hibernate-mapping>

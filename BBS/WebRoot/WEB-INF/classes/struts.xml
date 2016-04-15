@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+   	<constant name="struts.devMode" value="true"/>
+   	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.ui.theme" value="simple"></constant>
+ 	<constant name="struts.objectFactory" value="spring" />
+ 	
+ 	<package name="struts-BBS" extends="struts-default" abstract="true">
+ 		<interceptors>
+			<interceptor name="permissionInterceptor" class="com.mjs.filter.PermissionInterceptor"></interceptor>
+		</interceptors>
+				
+ 	</package>
+ 	
+ 	<include file="struts2/struts-person.xml"></include>
+ 	<include file="struts2/struts-invitation.xml"></include>
+ 	<include file="struts2/struts-role.xml"></include>
+ 	<include file="struts2/struts-authority.xml"></include>
+</struts>	

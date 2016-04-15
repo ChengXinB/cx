@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mjs.domain">
+	<class name="Person" table="person">
+		<id name="p_id" column="p_id" type="string">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="p_username" column="p_username" not-null="true" unique="true"></property>
+		<property name="p_password" column="p_password" not-null="true"></property>
+		<property name="p_birthday" column="p_birthday"></property>
+		<property name="p_date" column="p_date"></property>
+		<property name="p_nick" column="p_nick"></property>
+		<property name="p_sex" column="p_sex"></property>
+		<property name="p_time" column="p_time"></property>
+		<property name="p_photoFileName" column="p_photo"></property>
+		<property name="p_path" column="p_path"></property>
+		<set name="p_role" table="person_role">
+			<key column="r_person"></key>
+			<many-to-many class="Role" column="p_role"></many-to-many>
+		</set>
+		<set name="p_invitation" cascade="save-update">
+			<key column="i_person"></key>
+			<one-to-many class="Invitation"/>
+		</set>
+	</class>
+</hibernate-mapping>
